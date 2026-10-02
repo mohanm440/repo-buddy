@@ -1,0 +1,46 @@
+# Environment & Secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Python bytecode & cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Project Generated Indexes & Caches
+repo_index/
+faiss_index/
+indexes/
+vector_store/
+cache/
+caches/
+*.index
+
+# Logs & Temporary Files
+*.log
+*.tmp
+patch.txt
+
+# Scratch & Backup Scripts
+app_backup.py
+repo_qa_backup.py
+debug_commit_diff.py
+debug_context.py
+debug_full.py
+debug_trace.py
+test_retrieval.py
+test_targeted.py
+update_app.py
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
