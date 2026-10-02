@@ -8,13 +8,16 @@ Repo Buddy is a production-grade, AI-powered GitHub Repository Intelligence and 
 
 ## 🚀 Live Demo
 
-[**Try Repo Buddy Live Demo**](YOUR_STREAMLIT_APP_URL)
+*Live Demo: Coming soon (Deploying on Streamlit Community Cloud)*
+
+[**Repo Buddy Live Demo**](YOUR_STREAMLIT_APP_URL)
 
 ---
 
 ## 💻 Source Code
 
-The complete source code is available in this GitHub repository.
+The complete source code is available in this GitHub repository:
+[https://github.com/mohanm440/repo-buddy](https://github.com/mohanm440/repo-buddy)
 
 ---
 
@@ -26,7 +29,8 @@ The complete source code is available in this GitHub repository.
 - 📚 **Unified Source Citations**: Deduplicated, interactive source chips with direct line ranges, file type badges, and GitHub links.
 - 🕸️ **Repository Pipeline Graph**: Visual architecture graph rendering confirmed component flows (`train.py` ➔ `realtime.py` ➔ `capture.py` / `classifier.py`).
 - 💬 **Smart Conversational Handler**: Zero-latency instant responses for pure greetings (`hello`, `hi`, `thanks`) without triggering unnecessary RAG retrieval.
-- 🛡️ **8 Free Shared Questions**: Shared daily query quota powered by Groq, plus a seamless **Bring Your Own Key (BYO Key)** option for multi-provider support (OpenAI, Gemini, Claude, Mistral, DeepSeek, etc.).
+- 🛡️ **8 Free Questions Quota**: Provides 8 free questions per visitor session (subject to a global daily shared cap of 150 questions across all visitors).
+- 🔑 **Bring Your Own Key (BYO Key)**: Supports user-supplied API keys for Groq, OpenAI, Google Gemini, Anthropic (Claude), OpenRouter, Mistral, DeepSeek, xAI (Grok), Together AI, Fireworks AI, Cerebras, SambaNova, NVIDIA NIM, Perplexity, Hugging Face, or custom OpenAI-compatible endpoints.
 - 📱 **Fully Responsive 3D Cockpit**: Translucent glass surfaces, custom CSS micro-interactions, and adaptive layouts for desktop, tablet, and mobile displays.
 
 ---
@@ -59,7 +63,7 @@ The complete source code is available in this GitHub repository.
    - **Dense Vectors**: `BAAI/bge-small-en-v1.5` embeddings stored in an in-memory `FAISS` index.
    - **Lexical Tokens**: `rank_bm25` index for exact code symbol and function name matches.
 3. **Hybrid RAG & RRF**: Reciprocal Rank Fusion combines top candidates from both search algorithms for optimal context precision.
-4. **Contextual LLM Generation**: Prompts Groq models (`openai/gpt-oss-20b`, `qwen/qwen3.8-27b`) or user-supplied LLMs with retrieved context and chat history.
+4. **Contextual LLM Generation**: Prompts Groq models (`openai/gpt-oss-20b`, `qwen/qwen3.8-27b`, `openai/gpt-oss-120b`) or visitor-selected provider models with retrieved context and chat history.
 
 ---
 
@@ -76,10 +80,12 @@ The complete source code is available in this GitHub repository.
 ## 📁 Project Structure
 
 ```
-D:/rag system/
+repo-buddy/
 ├── app.py                      # Main Streamlit application entry point
+├── repo_qa.py                  # CLI interface for repository Q&A
 ├── requirements.txt            # Python dependencies for deployment
 ├── README.md                   # Project documentation
+├── LICENSE                     # MIT License file
 ├── .gitignore                  # Git exclusions for secrets, caches, and logs
 ├── .streamlit/
 │   └── config.toml             # Streamlit theme configuration
@@ -108,7 +114,7 @@ D:/rag system/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/repo-buddy.git
+   git clone https://github.com/mohanm440/repo-buddy.git
    cd repo-buddy
    ```
 
@@ -160,7 +166,7 @@ GROQ_API_KEY = "gsk_your_actual_groq_api_key_here"
 1. Push your repository code to GitHub (ensure secrets are ignored by `.gitignore`).
 2. Log in to [Streamlit Community Cloud](https://streamlit.io/cloud).
 3. Click **New app**.
-4. Select your GitHub repository, branch (`main`), and set the main file path to:
+4. Select your GitHub repository (`mohanm440/repo-buddy`), branch (`main`), and set the main file path to:
    ```
    app.py
    ```
