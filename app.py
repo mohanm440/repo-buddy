@@ -206,6 +206,32 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 }
 [data-testid="stSidebar"] [data-testid="stPopover"] button:hover,[data-testid="stSidebar"] [data-testid="stPopoverButton"]:hover{background: rgba(124, 58, 237, 0.15);}
 
+/* ── Sidebar Top Navigation Header Controls (Horizontal Row) ─ */
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.35rem !important;
+  width: 100% !important;
+}
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] > [data-testid="stColumn"],
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] > div {
+  width: 33.33% !important;
+  min-width: 0 !important;
+  flex: 1 1 33.33% !important;
+}
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] button,
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] [data-testid="stPopover"] {
+  width: 100% !important;
+}
+[data-testid="stSidebar"] [data-testid="stHorizontalBlock"] button {
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 44px !important;
+}
+
 /* ── 3D Statistic Cards ────────────────────────────────────── */
 .stat-cards-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:.4rem;margin-top:.4rem}
 .stat-card-3d{
