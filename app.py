@@ -458,6 +458,9 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 
 /* ── 3D Floating Composer & Touch-Safe Layers ──────────────── */
 @media screen and (min-width: 769px) {
+  .block-container {
+    padding-bottom: 11.5rem!important;
+  }
   [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
     position: fixed!important;
     bottom: 0!important;
