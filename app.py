@@ -136,9 +136,14 @@ html,body,[data-testid="stAppViewContainer"]{
   pointer-events: none;
   z-index: 0;
 }
-.block-container{max-width:980px!important;padding:1rem 1.5rem 8rem!important;margin:0 auto!important;position:relative;z-index:1}
-footer{visibility:hidden}
-h1,h2,h3{font-weight:700;letter-spacing:-.02em}
+footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="stStatusWidget"], [data-testid="stDecoration"]{
+  display: none!important;
+  visibility: hidden!important;
+  height: 0!important;
+  width: 0!important;
+  opacity: 0!important;
+  pointer-events: none!important;
+}
 
 /* ── 3D Glass Sidebar ─────────────────────────────────────── */
 [data-testid="stSidebar"]{
