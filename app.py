@@ -476,17 +476,66 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   .block-container {
     padding-bottom: 11.5rem!important;
   }
-  [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
+  
+  /* STATE 2: Expanded Sidebar (285px) */
+  [data-testid="stSidebar"][aria-expanded="true"],
+  [data-testid="stSidebar"]:not([aria-expanded="false"]) {
+    min-width: 285px!important;
+    max-width: 285px!important;
+    width: 285px!important;
+    transition: width 0.3s ease, min-width 0.3s ease, max-width 0.3s ease!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="true"] ~ [data-testid="stBottom"],
+  [data-testid="stSidebar"]:not([aria-expanded="false"]) ~ [data-testid="stBottom"] {
     position: fixed!important;
     bottom: 0!important;
-    left: 275px!important;
+    left: 285px!important;
     right: 0!important;
-    width: calc(100vw - 275px)!important;
+    width: calc(100vw - 285px)!important;
     z-index: 9999!important;
     background: transparent!important;
     pointer-events: none!important;
     padding-bottom: .8rem!important;
     padding-top: .4rem!important;
+    transition: left 0.3s ease, width 0.3s ease!important;
+  }
+
+  /* STATE 1: Collapsed Sidebar Icon Rail (60px) */
+  [data-testid="stSidebar"][aria-expanded="false"] {
+    min-width: 60px!important;
+    max-width: 60px!important;
+    width: 60px!important;
+    transform: none!important;
+    margin-left: 0!important;
+    visibility: visible!important;
+    overflow-x: hidden!important;
+    transition: width 0.3s ease, min-width 0.3s ease, max-width 0.3s ease!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="false"] [data-testid="stSidebarContent"] {
+    padding: 0.65rem 0.25rem!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="false"] .sb-section,
+  [data-testid="stSidebar"][aria-expanded="false"] .stTextInput,
+  [data-testid="stSidebar"][aria-expanded="false"] .repo-card,
+  [data-testid="stSidebar"][aria-expanded="false"] hr,
+  [data-testid="stSidebar"][aria-expanded="false"] label,
+  [data-testid="stSidebar"][aria-expanded="false"] .stCaption {
+    display: none!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="false"] .stButton button p {
+    font-size: 1.1rem!important;
+    text-align: center!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="false"] ~ [data-testid="stBottom"] {
+    position: fixed!important;
+    bottom: 0!important;
+    left: 60px!important;
+    right: 0!important;
+    width: calc(100vw - 60px)!important;
+    z-index: 9999!important;
+    background: transparent!important;
+    pointer-events: none!important;
+    transition: left 0.3s ease, width 0.3s ease!important;
   }
 }
 [data-testid="stChatInput"]{
