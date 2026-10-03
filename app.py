@@ -149,15 +149,15 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 [data-testid="stSidebar"]{
   background: rgba(12, 12, 18, 0.75)!important;
   backdrop-filter: blur(20px)!important;
-  border-right: 1px solid rgba(139, 92, 246, 0.18)!important;
-  min-width: 275px!important;
-  max-width: 295px!important;
+  border-right: 1px solid rgba(139, 92, 246, 0.14)!important;
+  min-width: 255px!important;
+  max-width: 275px!important;
   box-shadow: 10px 0 35px rgba(0,0,0,0.55)!important;
 }
 [data-testid="stSidebarContent"]{padding:0.65rem 0.8rem}
 [data-testid="stSidebar"] .stButton button{
-  background: rgba(20, 20, 32, 0.5);
-  border: 1px solid rgba(139, 92, 246, 0.12);
+  background: rgba(16, 16, 24, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.08);
   color: #c0c0d5;
   justify-content: flex-start;
   text-align: left;
@@ -188,15 +188,15 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 }
 [data-testid="stSidebar"] button:disabled{opacity:.3}
 [data-testid="stSidebar"] .stTextInput input{
-  background: rgba(18, 18, 28, 0.7);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(16, 16, 24, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.12);
   border-radius: 7px;
   color: #e0e0ec;
   font-size: .82rem;
   padding: .4rem .6rem;
 }
 [data-testid="stSidebar"] .stTextInput input:focus{border-color: #06b6d4; box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);}
-[data-testid="stSidebar"] .stSelectbox>div>div{background: rgba(18, 18, 28, 0.7); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 7px; color: #e0e0ec; font-size: .82rem;}
+[data-testid="stSidebar"] .stSelectbox>div>div{background: rgba(16, 16, 24, 0.5); border: 1px solid rgba(139, 92, 246, 0.12); border-radius: 7px; color: #e0e0ec; font-size: .82rem;}
 [data-testid="stSidebar"] label{color: #8b5cf6; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .2rem;}
 [data-testid="stSidebar"] .stCaption,.stCaption{color: #71717a; font-size: .74rem;}
 [data-testid="stSidebar"] hr{border-color: rgba(139, 92, 246, 0.15); margin: .5rem 0;}
@@ -235,8 +235,8 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 /* ── 3D Statistic Cards ────────────────────────────────────── */
 .stat-cards-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:.4rem;margin-top:.4rem}
 .stat-card-3d{
-  background: rgba(20, 20, 32, 0.75);
-  border: 1px solid rgba(139, 92, 246, 0.22);
+  background: rgba(16, 16, 26, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.12);
   border-radius: 10px;
   padding: .45rem .2rem;
   text-align: center;
@@ -438,13 +438,13 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 
 /* ── Repo Status Card ─────────────────────────────────────── */
 .repo-card{
-  background: rgba(18, 18, 28, 0.75);
+  background: rgba(14, 14, 22, 0.55);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(139, 92, 246, 0.14);
   border-radius: 12px;
   padding: .6rem .8rem;
   margin: .5rem 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transition: all .25s ease;
 }
 .repo-card:hover{
@@ -454,7 +454,7 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 }
 .repo-card-name{font-size:.8rem;font-weight:600;color:#c7d2fe;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
 .repo-card-stats{font-size:.7rem;color:#9ca3af;margin-top:.2rem}
-.sb-section{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8b5cf6;padding:.45rem 0 .2rem;margin-top:.2rem}
+.sb-section{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8b5cf6;padding:.5rem 0 .25rem;margin-top:1.15rem}
 
 /* ── 3D Floating Composer & Touch-Safe Layers ──────────────── */
 @media screen and (min-width: 769px) {
@@ -464,9 +464,9 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
     position: fixed!important;
     bottom: 0!important;
-    left: 295px!important;
+    left: 275px!important;
     right: 0!important;
-    width: calc(100vw - 295px)!important;
+    width: calc(100vw - 275px)!important;
     z-index: 9999!important;
     background: transparent!important;
     pointer-events: none!important;
