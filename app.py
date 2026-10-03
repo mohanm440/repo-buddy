@@ -560,7 +560,7 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
   }
   .block-container {
     max-width: 100%!important;
-    padding: .8rem .75rem 8.5rem!important;
+    padding: .8rem .75rem 12.5rem!important;
     margin: 0!important;
   }
   [data-testid="stSidebar"] {
@@ -611,11 +611,10 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
   
   [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
     position: fixed!important;
-    bottom: 0!important;
+    bottom: calc(3.5rem + env(safe-area-inset-bottom))!important;
     left: 0!important;
     right: 0!important;
-    z-index: 99999!important;
-    padding-bottom: calc(8px + env(safe-area-inset-bottom))!important;
+    padding-bottom: 0!important;
     padding-left: .5rem!important;
     padding-right: .5rem!important;
     pointer-events: none!important;
@@ -624,7 +623,6 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
     height: 56px!important;
     border-radius: 14px!important;
     pointer-events: auto!important;
-    z-index: 99999!important;
     width: 100%!important;
     max-width: 100%!important;
     margin: 0!important;
@@ -641,7 +639,6 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
     pointer-events: auto!important;
     touch-action: manipulation!important;
     position: relative!important;
-    z-index: 100000!important;
   }
   
   .landing-hero-card { padding: 1.8rem 1rem 1.4rem!important; }
