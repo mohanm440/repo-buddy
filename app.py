@@ -425,19 +425,28 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 .repo-card-stats{font-size:.7rem;color:#9ca3af;margin-top:.2rem}
 .sb-section{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8b5cf6;padding:.45rem 0 .2rem;margin-top:.2rem}
 
-/* ── 3D Floating Composer ─────────────────────────────────── */
-[data-testid="stBottom"]>div,[data-testid="stBottomBlockContainer"]{
+/* ── 3D Floating Composer & Touch-Safe Layers ──────────────── */
+[data-testid="stBottom"], [data-testid="stBottomBlockContainer"]{
+  position: fixed!important;
+  bottom: 0!important;
+  left: 0!important;
+  right: 0!important;
+  z-index: 9999!important;
   background: transparent!important;
-  padding-bottom: .8rem!important;
+  pointer-events: none!important;
+  padding-bottom: max(0.6rem, env(safe-area-inset-bottom))!important;
   padding-top: .4rem!important;
 }
 [data-testid="stChatInput"]{
-  background: rgba(15, 15, 25, 0.85)!important;
+  position: relative!important;
+  z-index: 10000!important;
+  pointer-events: auto!important;
+  background: rgba(15, 15, 25, 0.88)!important;
   backdrop-filter: blur(20px)!important;
-  border: 1px solid rgba(139, 92, 246, 0.3)!important;
+  border: 1px solid rgba(139, 92, 246, 0.35)!important;
   border-radius: 16px!important;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)!important;
-  padding: 3px 8px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1)!important;
+  padding: 4px 8px;
   height: 60px!important;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
@@ -450,12 +459,19 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 [data-testid="stChatInput"] textarea{font-size:.88rem;color:#e4e4e7;padding:.5rem .4rem!important}
 [data-testid="stChatInput"] textarea::placeholder{color:#71717a}
 [data-testid="stChatInputSubmitButton"]{
+  position: relative!important;
+  z-index: 10002!important;
+  pointer-events: auto!important;
   background: linear-gradient(135deg, #7c3aed, #06b6d4)!important;
   color: #fff!important;
   border-radius: 50%!important;
-  width: 2.3rem!important;
-  height: 2.3rem!important;
+  min-width: 44px!important;
+  min-height: 44px!important;
+  width: 44px!important;
+  height: 44px!important;
   box-shadow: 0 0 14px rgba(124, 58, 237, 0.5)!important;
+  touch-action: manipulation!important;
+  cursor: pointer!important;
 }
 [data-testid="stChatInputSubmitButton"]:disabled{background:#1f1f2e!important;color:#52525b!important;box-shadow:none!important}
 
@@ -516,13 +532,14 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 @media screen and (max-width: 768px) {
   .block-container {
     max-width: 100%!important;
-    padding: .8rem .75rem 7.5rem!important;
+    padding: .8rem .75rem 8.5rem!important;
     margin: 0!important;
   }
   [data-testid="stSidebar"] {
     min-width: 82vw!important;
     max-width: 82vw!important;
     box-shadow: 15px 0 40px rgba(0, 0, 0, 0.7)!important;
+    z-index: 9998!important;
   }
   .rb-3d-header {
     padding: .55rem .8rem;
@@ -531,7 +548,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
     border-radius: 12px;
   }
   .rb-orb-container { width: 36px; height: 36px; }
-  .rb-hologram-orb { width: 34px; height: 34px; }
+  .rb-hologram-orb { width: 34px; height: 34px; pointer-events: none!important; }
   .rb-logo-3d { font-size: 1.4rem; }
   .rb-title-3d { font-size: 1.05rem; }
   .rb-subtitle-3d { font-size: .6rem; }
@@ -564,17 +581,36 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
   .graph-node { min-width: 105px!important; padding: .4rem .55rem!important; }
   .node-title { font-size: .65rem!important; }
   
-  [data-testid="stBottom"] > div, [data-testid="stBottomBlockContainer"] {
-    padding-bottom: .4rem!important;
+  [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
+    position: fixed!important;
+    bottom: 0!important;
+    left: 0!important;
+    right: 0!important;
+    z-index: 9999!important;
+    padding-bottom: max(0.6rem, env(safe-area-inset-bottom))!important;
     padding-left: .5rem!important;
     padding-right: .5rem!important;
+    pointer-events: none!important;
   }
   [data-testid="stChatInput"] {
-    height: 54px!important;
+    height: 56px!important;
     border-radius: 14px!important;
+    pointer-events: auto!important;
+    z-index: 10000!important;
   }
-  [data-testid="stChatInput"] textarea { font-size: .84rem!important; padding: .4rem .3rem!important; }
-  [data-testid="stChatInputSubmitButton"] { width: 2.1rem!important; height: 2.1rem!important; }
+  [data-testid="stChatInput"] textarea {
+    font-size: .86rem!important;
+    padding: .4rem .3rem!important;
+  }
+  [data-testid="stChatInputSubmitButton"] {
+    min-width: 44px!important;
+    min-height: 44px!important;
+    width: 44px!important;
+    height: 44px!important;
+    pointer-events: auto!important;
+    z-index: 10002!important;
+    touch-action: manipulation!important;
+  }
   
   .landing-hero-card { padding: 1.8rem 1rem 1.4rem!important; }
   .landing-title { font-size: 1.5rem!important; }
