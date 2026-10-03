@@ -431,16 +431,19 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 .sb-section{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8b5cf6;padding:.45rem 0 .2rem;margin-top:.2rem}
 
 /* ── 3D Floating Composer & Touch-Safe Layers ──────────────── */
-[data-testid="stBottom"], [data-testid="stBottomBlockContainer"]{
-  position: fixed!important;
-  bottom: 0!important;
-  left: 0!important;
-  right: 0!important;
-  z-index: 9999!important;
-  background: transparent!important;
-  pointer-events: none!important;
-  padding-bottom: max(0.6rem, env(safe-area-inset-bottom))!important;
-  padding-top: .4rem!important;
+@media screen and (min-width: 769px) {
+  [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {
+    position: fixed!important;
+    bottom: 0!important;
+    left: 295px!important;
+    right: 0!important;
+    width: calc(100vw - 295px)!important;
+    z-index: 9999!important;
+    background: transparent!important;
+    pointer-events: none!important;
+    padding-bottom: .8rem!important;
+    padding-top: .4rem!important;
+  }
 }
 [data-testid="stChatInput"]{
   position: relative!important;
