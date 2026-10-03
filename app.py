@@ -586,8 +586,8 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
     bottom: 0!important;
     left: 0!important;
     right: 0!important;
-    z-index: 9999!important;
-    padding-bottom: max(0.6rem, env(safe-area-inset-bottom))!important;
+    z-index: 99999!important;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom))!important;
     padding-left: .5rem!important;
     padding-right: .5rem!important;
     pointer-events: none!important;
@@ -596,20 +596,23 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
     height: 56px!important;
     border-radius: 14px!important;
     pointer-events: auto!important;
-    z-index: 10000!important;
+    z-index: 99999!important;
+    max-width: calc(100% - 62px)!important;
+    margin-right: 62px!important;
   }
   [data-testid="stChatInput"] textarea {
     font-size: .86rem!important;
     padding: .4rem .3rem!important;
   }
-  [data-testid="stChatInputSubmitButton"] {
+  [data-testid="stChatInput"] button, [data-testid="stChatInputSubmitButton"] {
     min-width: 44px!important;
     min-height: 44px!important;
     width: 44px!important;
     height: 44px!important;
     pointer-events: auto!important;
-    z-index: 10002!important;
     touch-action: manipulation!important;
+    position: relative!important;
+    z-index: 100000!important;
   }
   
   .landing-hero-card { padding: 1.8rem 1rem 1.4rem!important; }
