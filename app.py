@@ -1391,7 +1391,10 @@ if question:
                 st.markdown(answer)
                 hits = []
             else:
-                standalone = rewrite_question(question, history, client, active_model)
+                if not history:
+                    standalone = question
+                else:
+                    standalone = rewrite_question(question, history, client, active_model)
                 if standalone != question:
                     st.caption(f"🔎 Searching for: {standalone}")
 
