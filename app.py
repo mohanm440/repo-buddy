@@ -522,13 +522,24 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   }
   [data-testid="stSidebar"][aria-expanded="false"] .sb-section,
   [data-testid="stSidebar"][aria-expanded="false"] .stTextInput,
+  [data-testid="stSidebar"][aria-expanded="false"] input,
+  [data-testid="stSidebar"][aria-expanded="false"] textarea,
   [data-testid="stSidebar"][aria-expanded="false"] .repo-card,
   [data-testid="stSidebar"][aria-expanded="false"] .stat-card-3d,
   [data-testid="stSidebar"][aria-expanded="false"] label,
   [data-testid="stSidebar"][aria-expanded="false"] .stCaption,
   [data-testid="stSidebar"][aria-expanded="false"] hr,
-  [data-testid="stSidebar"][aria-expanded="false"] [data-testid="stSelectbox"] {
+  [data-testid="stSidebar"][aria-expanded="false"] [data-testid="stSelectbox"],
+  [data-testid="stSidebar"][aria-expanded="false"] [data-testid="stMarkdownContainer"] {
     display: none!important;
+  }
+  [data-testid="stSidebar"][aria-expanded="false"] .stButton button {
+    overflow: hidden!important;
+    text-overflow: clip!important;
+    white-space: nowrap!important;
+    justify-content: center!important;
+    text-align: center!important;
+    padding: 0.5rem 0!important;
   }
   [data-testid="stSidebar"][aria-expanded="false"] .stButton button p {
     font-size: 1.15rem!important;
