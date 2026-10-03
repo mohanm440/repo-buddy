@@ -454,8 +454,8 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   border: 1px solid rgba(139, 92, 246, 0.35)!important;
   border-radius: 16px!important;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1)!important;
-  padding: 4px 8px;
-  min-height: 60px!important;
+  padding: 2px 6px!important;
+  min-height: 50px!important;
   height: auto!important;
   display: flex!important;
   align-items: center!important;
@@ -467,7 +467,7 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 }
 [data-testid="stChatInput"] *{border-color:transparent!important;box-shadow:none!important}
 [data-testid="stChatInput"]>div,[data-testid="stChatInput"] textarea{background:transparent!important}
-[data-testid="stChatInput"] textarea{font-size:.88rem;color:#e4e4e7;padding:.5rem 52px .5rem .4rem!important}
+[data-testid="stChatInput"] textarea{font-size:.88rem;color:#e4e4e7;padding:.35rem 48px .35rem .5rem!important;min-height:36px!important;height:auto!important}
 [data-testid="stChatInput"] textarea::placeholder{color:#71717a}
 [data-testid="stChatInputSubmitButton"]{
   position: relative!important;
@@ -476,10 +476,10 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   background: linear-gradient(135deg, #7c3aed, #06b6d4)!important;
   color: #fff!important;
   border-radius: 50%!important;
-  min-width: 44px!important;
-  min-height: 44px!important;
-  width: 44px!important;
-  height: 44px!important;
+  min-width: 40px!important;
+  min-height: 40px!important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 14px rgba(124, 58, 237, 0.5)!important;
   touch-action: manipulation!important;
   cursor: pointer!important;
@@ -629,7 +629,7 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
     pointer-events: none!important;
   }
   [data-testid="stChatInput"] {
-    min-height: 56px!important;
+    min-height: 50px!important;
     height: auto!important;
     max-height: 160px!important;
     border-radius: 14px!important;
@@ -637,19 +637,22 @@ header[data-testid="stHeader"], [data-testid="stHeader"] {
     width: 100%!important;
     max-width: 100%!important;
     margin: 0!important;
+    padding: 2px 6px!important;
     display: flex!important;
     align-items: center!important;
   }
   [data-testid="stChatInput"] textarea {
     font-size: .86rem!important;
-    padding: .4rem 52px .4rem .4rem!important;
+    padding: .35rem 48px .35rem .5rem!important;
+    min-height: 36px!important;
+    height: auto!important;
     resize: none!important;
   }
   [data-testid="stChatInput"] button, [data-testid="stChatInputSubmitButton"] {
-    min-width: 44px!important;
-    min-height: 44px!important;
-    width: 44px!important;
-    height: 44px!important;
+    min-width: 40px!important;
+    min-height: 40px!important;
+    width: 40px!important;
+    height: 40px!important;
     pointer-events: auto!important;
     touch-action: manipulation!important;
     position: relative!important;
