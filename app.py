@@ -201,6 +201,21 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
 [data-testid="stSidebar"] .stCaption,.stCaption{color: #71717a; font-size: .74rem;}
 [data-testid="stSidebar"] hr{border-color: rgba(139, 92, 246, 0.15); margin: .5rem 0;}
 [data-testid="stSidebarCollapseButton"] button{opacity: .6; background: transparent; border: none;}
+
+/* ── Collapsed Sidebar Toggle (Positioned on LEFT Edge) ───── */
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stCollapsedSidebarControl"],
+[data-testid="stHeader"] [data-testid="stSidebarCollapseButton"] {
+  position: absolute !important;
+  left: 0.75rem !important;
+  right: auto !important;
+  top: 0.45rem !important;
+  z-index: 10001 !important;
+  margin-right: auto !important;
+  pointer-events: auto !important;
+}
+
 [data-testid="stSidebar"] [data-testid="stPopover"] button,[data-testid="stSidebar"] [data-testid="stPopoverButton"]{
   background: transparent; border: none; box-shadow: none; color: #c0c0d5; font-size: .82rem; border-radius: 6px;
 }
