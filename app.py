@@ -528,8 +528,31 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 @media (prefers-reduced-motion:reduce){.bot,.bot *{animation:none!important}}
 
+/* ── Repository Navigation Bar (TOP) ───────────────────────── */
+header[data-testid="stHeader"], [data-testid="stHeader"] {
+  position: sticky!important;
+  top: 0!important;
+  left: 0!important;
+  right: 0!important;
+  z-index: 1000!important;
+  background: rgba(9, 9, 14, 0.95)!important;
+  backdrop-filter: blur(16px)!important;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2)!important;
+  pointer-events: auto!important;
+}
+
 /* ── Mobile Responsive Rules (viewport <= 768px) ────────────── */
 @media screen and (max-width: 768px) {
+  header[data-testid="stHeader"], [data-testid="stHeader"] {
+    position: sticky!important;
+    top: 0!important;
+    left: 0!important;
+    right: 0!important;
+    z-index: 1000!important;
+    background: rgba(9, 9, 14, 0.95)!important;
+    backdrop-filter: blur(16px)!important;
+    pointer-events: auto!important;
+  }
   .block-container {
     max-width: 100%!important;
     padding: .8rem .75rem 8.5rem!important;
@@ -597,8 +620,9 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
     border-radius: 14px!important;
     pointer-events: auto!important;
     z-index: 99999!important;
-    max-width: calc(100% - 62px)!important;
-    margin-right: 62px!important;
+    width: 100%!important;
+    max-width: 100%!important;
+    margin: 0!important;
   }
   [data-testid="stChatInput"] textarea {
     font-size: .86rem!important;
