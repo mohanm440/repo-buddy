@@ -1006,7 +1006,7 @@ def render_sources(sources, repo: str):
         return
 
     count = len(unique_sources)
-    with st.expander(f"📚 Sources · {count}", expanded=False):
+    with st.expander(f"Sources · {count}", expanded=False):
         for s in unique_sources:
             c_type = s.get('type', 'code')
             file_name = s.get('file', '')
@@ -1015,25 +1015,20 @@ def render_sources(sources, repo: str):
 
             lower_f = file_name.lower()
             if c_type == 'commit' or c_type == 'commit_diff':
-                icon = "🔀"
                 label = f"Commit {s.get('commit_sha','')[:7]}"
                 detail = s.get('file', '') or s.get('author', '')
             elif any(lower_f.endswith(e) for e in ['.md', '.txt', '.pdf', '.docx']) or 'generate_paper' in lower_f:
-                icon = "📘"
                 label = file_name
                 detail = f"Lines {s.get('start','')}-{s.get('end','')}" if s.get('start') is not None and s.get('start') != '' else ""
             elif lower_f in ['requirements.txt', 'package.json', 'dockerfile', 'makefile'] or lower_f.endswith(('.yml', '.yaml', '.toml', '.json', '.env')):
-                icon = "⚙"
                 label = file_name
                 detail = f"Lines {s.get('start','')}-{s.get('end','')}" if s.get('start') is not None and s.get('start') != '' else ""
             else:
-                icon = "📄"
                 label = file_name
                 detail = f"Lines {s.get('start','')}-{s.get('end','')}" if s.get('start') is not None and s.get('start') != '' else ""
 
             st.markdown(
                 f'''<div class="unified-src-header">
-                    <span class="src-icon">{icon}</span>
                     <span class="src-title">{label}</span>
                     <span class="src-detail">{detail}</span>
                     <a href="{url}" target="_blank" class="src-link" title="Open on GitHub">GitHub ↗</a>
@@ -1055,16 +1050,16 @@ with st.sidebar:
     pos = (chat_ids.index(st.session_state.active_chat)
            if st.session_state.active_chat in chat_ids else None)
     with nav_menu.popover("☰", use_container_width=True):
-        if st.button("➕ New chat", key="menu_new", use_container_width=True,
+        if st.button("+ New chat", key="menu_new", use_container_width=True,
                      disabled=not st.session_state.repo):
             new_chat(st.session_state.repo)
             st.rerun()
         menu_chat = get_active_chat()
         if menu_chat and menu_chat["messages"]:
-            st.download_button("⬇ Download chat", data=chat_to_markdown(menu_chat),
+            st.download_button("Download chat", data=chat_to_markdown(menu_chat),
                                file_name="chat.md", mime="text/markdown",
                                use_container_width=True)
-        if st.button("🧹 Clear messages", key="menu_clear", use_container_width=True):
+        if st.button("Clear messages", key="menu_clear", use_container_width=True):
             st.session_state.messages.clear()
             st.rerun()
     if nav_back.button("←", key="nav_back", use_container_width=True,
@@ -1081,7 +1076,7 @@ with st.sidebar:
                              placeholder="https://github.com/pallets/click",
                              label_visibility="collapsed")
     gh_token = st.text_input("GitHub Token (Optional)", type="password", placeholder="GitHub Token (Optional)")
-    if st.button("⚡ Index repository", type="primary", use_container_width=True):
+    if st.button("Analyze repository", type="primary", use_container_width=True):
         if do_index(repo_url, gh_token):
             st.session_state.pending_overview = True
             st.success("Ready! Ask a question.")
@@ -1101,63 +1096,54 @@ with st.sidebar:
 
         st.markdown(
             f'''<div class="repo-card">
-                <div class="repo-card-name">🟢 {short_name}</div>
-                <div class="stat-cards-grid">
-                    <div class="stat-card-3d">
-                        <div class="stat-val">{file_cnt}</div>
-                        <div class="stat-lbl">FILES</div>
-                    </div>
-                    <div class="stat-card-3d">
-                        <div class="stat-val">{chunk_cnt}</div>
-                        <div class="stat-lbl">CHUNKS</div>
-                    </div>
-                    <div class="stat-card-3d">
-                        <div class="stat-val">{commit_cnt}</div>
-                        <div class="stat-lbl">COMMITS</div>
-                    </div>
-                </div>
+                <div class="repo-card-name">{short_name}</div>
+                <div class="repo-card-stats">{file_cnt} files · {chunk_cnt} chunks · {commit_cnt} commits</div>
             </div>''',
             unsafe_allow_html=True
         )
 
-    st.markdown('<div class="sb-section">EXPLORE</div>', unsafe_allow_html=True)
-    exp_c1, exp_c2 = st.columns(2)
-    if exp_c1.button("🏠 Overview", use_container_width=True, disabled=not st.session_state.repo):
-        st.session_state.pending_q = "Give me an overview of this repository"
-        st.rerun()
-    if exp_c2.button("🔍 Search", use_container_width=True, disabled=not st.session_state.repo):
-        st.session_state.pending_q = "Where is packet capture implemented?"
-        st.rerun()
-    exp_c3, exp_c4 = st.columns(2)
-    if exp_c3.button("🔀 Commits", use_container_width=True, disabled=not st.session_state.repo):
-        st.session_state.pending_q = "What changed in the latest commit?"
-        st.rerun()
-    if exp_c4.button("🕸 Graph", use_container_width=True, disabled=not st.session_state.repo):
-        st.session_state.pending_q = "How does a packet flow through the system?"
+        st.markdown('<div class="sb-section">Navigation</div>', unsafe_allow_html=True)
+        exp_c1, exp_c2 = st.columns(2)
+        if exp_c1.button("Overview", use_container_width=True, disabled=not st.session_state.repo):
+            st.session_state.pending_q = "Give me an overview of this repository"
+            st.rerun()
+        if exp_c2.button("Search", use_container_width=True, disabled=not st.session_state.repo):
+            st.session_state.pending_q = "Where is packet capture implemented?"
+            st.rerun()
+        exp_c3, exp_c4 = st.columns(2)
+        if exp_c3.button("Commits", use_container_width=True, disabled=not st.session_state.repo):
+            st.session_state.pending_q = "What changed in the latest commit?"
+            st.rerun()
+        if exp_c4.button("Graph", use_container_width=True, disabled=not st.session_state.repo):
+            st.session_state.pending_q = "How does data flow through the system?"
+            st.rerun()
+
+    st.markdown('<div class="sb-section">Conversations</div>', unsafe_allow_html=True)
+    if st.button("+ New chat", key="sb_new_chat", use_container_width=True, disabled=not st.session_state.repo):
+        new_chat(st.session_state.repo)
         st.rerun()
 
-    st.markdown('<div class="sb-section">Chat History</div>', unsafe_allow_html=True)
     for chat in sorted(st.session_state.chats, key=lambda c: not c.get("pinned", False)):
         cid = chat["id"]
         is_active = (cid == st.session_state.active_chat)
-        marker = "▶ " if is_active else ""
-        icon = "📌 " if chat.get("pinned") else ""
+        marker = "• " if is_active else ""
+        icon = "Pin " if chat.get("pinned") else ""
         row_title, row_menu = st.columns([5, 1])
         if row_title.button(f"{marker}{icon}{chat['title']}", key=f"chat_{cid}",
                             use_container_width=True):
             open_chat(chat)
             st.rerun()
         with row_menu.popover("⋯", use_container_width=True):
-            if st.button("📌 Unpin" if chat.get("pinned") else "📌 Pin",
+            if st.button("Unpin" if chat.get("pinned") else "Pin",
                          key=f"pin_{cid}", use_container_width=True):
                 chat["pinned"] = not chat.get("pinned", False)
                 st.rerun()
             new_name = st.text_input("Rename", value=chat["title"],
                                      key=f"rename_{cid}_{chat['title']}")
-            if st.button("✏️ Save name", key=f"save_{cid}", use_container_width=True):
+            if st.button("Save name", key=f"save_{cid}", use_container_width=True):
                 chat["title"] = new_name.strip()[:60] or chat["title"]
                 st.rerun()
-            if st.button("🗑 Delete", key=f"del_{cid}", use_container_width=True):
+            if st.button("Delete", key=f"del_{cid}", use_container_width=True):
                 delete_chat(chat)
                 st.rerun()
 
@@ -1165,7 +1151,7 @@ with st.sidebar:
         commits = [c for c in st.session_state.chunks if c.get('type') == 'commit']
         if commits:
             st.markdown('<div class="sb-section">Commits</div>', unsafe_allow_html=True)
-            with st.expander(f"📜 Recent Commits ({len(commits)})", expanded=False):
+            with st.expander(f"Recent Commits ({len(commits)})", expanded=False):
                 for c in commits[:8]:
                     sha = c.get('commit_sha', '')[:7]
                     msg_first = c.get('message', '').splitlines()[0][:32]
@@ -1174,7 +1160,7 @@ with st.sidebar:
                         st.session_state.pending_q = f"What changed in commit {sha}?"
                         st.rerun()
 
-    with st.expander("⚙️ Settings", expanded=False):
+    with st.expander("Settings", expanded=False):
         left = max(FREE_QUESTIONS - st.session_state.q_count, 0)
         st.caption(f"Free questions left: {left} of {FREE_QUESTIONS}")
         provider = st.selectbox("Provider", list(PROVIDERS))
@@ -1340,7 +1326,7 @@ if question:
     client, active_model = get_llm(api_key.strip(), base_url.strip(), model.strip())
     with st.chat_message("assistant"):
         status = st.empty()
-        status.markdown(robot("searching", "Searching the repo…"), unsafe_allow_html=True)
+        status.caption("Searching repository...")
         try:
             # --- Smart Greeting Handler ---
             GREETINGS = {"hello", "hi", "hey", "greetings", "good morning", "good evening", "good afternoon", "thanks", "thank you", "bye", "goodbye"}
@@ -1358,7 +1344,7 @@ if question:
                 else:
                     standalone = rewrite_question(question, history, client, active_model)
                 if standalone != question:
-                    st.caption(f"🔎 Searching for: {standalone}")
+                    st.caption(f"Searching for: {standalone}")
 
                 OVERVIEW_KEYWORDS = [
                     "overview", "architecture", "how does it work", "how do the components",
@@ -1372,23 +1358,22 @@ if question:
                 is_overview_query = any(kw in q_lower for kw in OVERVIEW_KEYWORDS)
 
                 if is_overview_query and st.session_state.chunks:
-                    status.markdown(robot("thinking", "Building repository overview…"), unsafe_allow_html=True)
+                    status.caption("Generating repository overview...")
                     answer = st.write_stream(relay(
                         stream_repository_overview(client, active_model, st.session_state.chunks), status
                     ))
-                    status.markdown(robot("happy", "Here you go!"), unsafe_allow_html=True)
+                    status.empty()
                     hits = []
                 else:
                     hits = retrieve(standalone)
-                    status.markdown(robot("thinking", "Thinking…"), unsafe_allow_html=True)
+                    status.caption("Thinking...")
                     answer = st.write_stream(relay(
                         stream_answer(standalone, hits, history, client, active_model), status
                     ))
-                    status.markdown(robot("happy", "Here you go!"), unsafe_allow_html=True)
+                    status.empty()
 
         except Exception as e:
-            status.markdown(robot("error", "Oops, something went wrong"),
-                            unsafe_allow_html=True)
+            status.empty()
             msg = str(e)
             if "503" in msg or "429" in msg:
                 st.error(
