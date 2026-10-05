@@ -1207,20 +1207,23 @@ with st.sidebar:
 
 
 # ---------- Header ----------
+# ---------- Header / Active Repository Context ----------
 if st.session_state.repo and st.session_state.index:
-    status_html = '<div class="rb-status"><span class="rb-status-dot"></span>INDEXED</div>'
+    repo_name = st.session_state.repo.rstrip("/").split("/")[-2] + "/" + st.session_state.repo.rstrip("/").split("/")[-1]
+    n_files = len(st.session_state.file_map)
+    n_chunks = len(st.session_state.chunks)
+    context_sub = f"Indexed · {n_files:,} files · {n_chunks:,} chunks"
+    status_html = '<div class="rb-status"><span class="rb-status-dot"></span>Indexed</div>'
 else:
-    status_html = '<div class="rb-status rb-status-inactive"><span class="rb-status-dot"></span>NOT INDEXED</div>'
+    repo_name = "Repo Buddy"
+    context_sub = "Ask anything about your repository. Connect a GitHub repository in the sidebar to begin."
+    status_html = '<div class="rb-status rb-status-inactive"><span class="rb-status-dot"></span>Not indexed</div>'
 
 st.markdown(
     f'''<div class="rb-3d-header">
-        <div class="rb-orb-container">
-            <div class="rb-hologram-orb"></div>
-            <div class="rb-logo-3d">🤖</div>
-        </div>
         <div class="rb-header-text">
-            <h1 class="rb-title-3d">Repo Buddy</h1>
-            <p class="rb-subtitle-3d">Repository intelligence for developers</p>
+            <h1 class="rb-title-3d">{repo_name}</h1>
+            <p class="rb-subtitle-3d">{context_sub}</p>
         </div>
         {status_html}
     </div>''',
@@ -1228,32 +1231,21 @@ st.markdown(
 )
 
 if not st.session_state.index:
-    st.markdown(
-        '''<div class="landing-hero-card">
-            <h1 class="landing-title">Understand any GitHub repository</h1>
-            <p class="landing-tagline">Connect a repository to explore codebase architecture, dependencies, and implementation details.</p>
-            <p class="landing-sub">Enter a public GitHub repository URL in the sidebar and click <b>Analyze repository</b> to begin.</p>
-        </div>''',
-        unsafe_allow_html=True
-    )
-    st.markdown('<div class="sb-section" style="text-align:left;margin-top:1.2rem;margin-bottom:0.8rem">EXPLORE SAMPLE QUESTIONS</div>', unsafe_allow_html=True)
-    c1, c2 = st.columns(2)
-    with c1:
-        st.markdown('''<div class="pop-card-title">Repository Overview</div><div class="pop-card-sub">What does this repo do & architecture</div>''', unsafe_allow_html=True)
-        if st.button("Generate Repository Overview", key="landing_q1", use_container_width=True, disabled=not st.session_state.repo):
+    st.markdown('<div class="suggested-heading">Suggested questions</div>', unsafe_allow_html=True)
+    
+    sq1, sq2 = st.columns(2)
+    with sq1:
+        if st.button("• What does this repository do?", key="landing_q1", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "Give me an overview of this repository"
             st.rerun()
-        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">Commit Changes</div><div class="pop-card-sub">What changed in recent commits</div>''', unsafe_allow_html=True)
-        if st.button("What changed recently?", key="landing_q2", use_container_width=True, disabled=not st.session_state.repo):
+        if st.button("• What changed recently in commits?", key="landing_q2", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "What changed in the latest commit?"
             st.rerun()
-    with c2:
-        st.markdown('''<div class="pop-card-title">Find Code</div><div class="pop-card-sub">Locate functions & modules</div>''', unsafe_allow_html=True)
-        if st.button("Where is packet capture implemented?", key="landing_q3", use_container_width=True, disabled=not st.session_state.repo):
+    with sq2:
+        if st.button("• Where is packet capture implemented?", key="landing_q3", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "Where is packet capture implemented?"
             st.rerun()
-        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">Trace Architecture</div><div class="pop-card-sub">Follow cross-file packet flows</div>''', unsafe_allow_html=True)
-        if st.button("How does a packet flow through the system?", key="landing_q4", use_container_width=True, disabled=not st.session_state.repo):
+        if st.button("• How does data flow through the system?", key="landing_q4", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "How does a packet flow through the system?"
             st.rerun()
     st.stop()
