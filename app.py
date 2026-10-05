@@ -1210,8 +1210,9 @@ with st.sidebar:
 # ---------- Header / Active Repository Context ----------
 if st.session_state.repo and st.session_state.index:
     repo_name = st.session_state.repo.rstrip("/").split("/")[-2] + "/" + st.session_state.repo.rstrip("/").split("/")[-1]
-    n_files = len(st.session_state.file_map)
-    n_chunks = len(st.session_state.chunks)
+    chunks = st.session_state.get("chunks", [])
+    n_files = len(set(c.get("file", "") for c in chunks if c.get("file")))
+    n_chunks = len(chunks)
     context_sub = f"Indexed · {n_files:,} files · {n_chunks:,} chunks"
     status_html = '<div class="rb-status"><span class="rb-status-dot"></span>Indexed</div>'
 else:
