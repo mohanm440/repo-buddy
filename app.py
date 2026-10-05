@@ -130,11 +130,14 @@ st.set_page_config(page_title="Repo Buddy", page_icon="🤖", layout="wide")
 st.markdown("""<style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-* {
+html, body, .stApp, .block-container, [data-testid="stSidebar"], h1, h2, h3, h4, h5, p, label, button, input, select, textarea {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif!important;
 }
-code, pre, .stCode {
+code, pre, .stCode, .stat-val {
   font-family: 'JetBrains Mono', monospace!important;
+}
+[class*="material-symbols"], [class*="material-icons"], [data-testid="stIcon"], [data-testid="stIcon"] *, i {
+  font-family: 'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Icons'!important;
 }
 
 /* ── 3D Space Background & Cyber Grid ──────────────────────── */
