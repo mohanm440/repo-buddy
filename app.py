@@ -182,31 +182,31 @@ footer, [data-testid="stFooter"], .viewerBadge_container__1QS-Z, [data-testid="s
   box-shadow: none!important;
 }
 [data-testid="stSidebar"] .stButton button[kind="primary"]{
-  background: #4f46e5!important;
+  background: #2563eb!important;
   color: #fff!important;
-  border: 1px solid #6366f1!important;
-  border-radius: 6px!important;
-  font-weight: 600;
+  border: 1px solid #3b82f6!important;
+  border-radius: 4px!important;
+  font-weight: 500;
   box-shadow: none!important;
 }
 [data-testid="stSidebar"] .stButton button[kind="primary"]:hover{
-  background: #4338ca!important;
-  border-color: #818cf8!important;
+  background: #1d4ed8!important;
+  border-color: #60a5fa!important;
   transform: none!important;
   box-shadow: none!important;
 }
-[data-testid="stSidebar"] button:disabled{opacity:.3}
+[data-testid="stSidebar"] button:disabled{opacity:.35}
 [data-testid="stSidebar"] .stTextInput input{
   background: #181924;
   border: 1px solid #232534;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #ececf1;
   font-size: .83rem;
   padding: .45rem .65rem;
 }
-[data-testid="stSidebar"] .stTextInput input:focus{border-color: #6366f1; box-shadow: 0 0 0 1px #6366f1;}
-[data-testid="stSidebar"] .stSelectbox>div>div{background: #181924; border: 1px solid #232534; border-radius: 6px; color: #ececf1; font-size: .83rem;}
-[data-testid="stSidebar"] label{color: #9496a8; font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem;}
+[data-testid="stSidebar"] .stTextInput input:focus{border-color: #3b82f6; box-shadow: 0 0 0 1px #3b82f6;}
+[data-testid="stSidebar"] .stSelectbox>div>div{background: #181924; border: 1px solid #232534; border-radius: 4px; color: #ececf1; font-size: .83rem;}
+[data-testid="stSidebar"] label{color: #9496a8; font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: .3rem;}
 [data-testid="stSidebar"] .stCaption,.stCaption{color: #717384; font-size: .74rem;}
 [data-testid="stSidebar"] hr{border-color: #1f212c; margin: .6rem 0;}
 [data-testid="stSidebarCollapseButton"] button{opacity: .7; background: transparent; border: none;}
