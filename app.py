@@ -128,6 +128,15 @@ FOLLOWUP_WORDS = {"it", "that", "this", "they", "them", "those", "these", "its",
 
 st.set_page_config(page_title="Repo Buddy", page_icon="🤖", layout="wide")
 st.markdown("""<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif!important;
+}
+code, pre, .stCode {
+  font-family: 'JetBrains Mono', monospace!important;
+}
+
 /* ── 3D Space Background & Cyber Grid ──────────────────────── */
 html,body,[data-testid="stAppViewContainer"]{
   background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #09090e 60%, #030305 100%)!important;
