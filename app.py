@@ -1219,8 +1219,8 @@ st.markdown(
             <div class="rb-logo-3d">🤖</div>
         </div>
         <div class="rb-header-text">
-            <h1 class="rb-title-3d">REPO BUDDY</h1>
-            <p class="rb-subtitle-3d">AI-POWERED GITHUB INTELLIGENCE</p>
+            <h1 class="rb-title-3d">Repo Buddy</h1>
+            <p class="rb-subtitle-3d">Repository intelligence for developers</p>
         </div>
         {status_html}
     </div>''',
@@ -1230,33 +1230,29 @@ st.markdown(
 if not st.session_state.index:
     st.markdown(
         '''<div class="landing-hero-card">
-            <div class="landing-logo-ring">
-                <div class="landing-orb"></div>
-                <div class="landing-icon">◉</div>
-            </div>
-            <h1 class="landing-title">REPO BUDDY</h1>
-            <p class="landing-tagline">Understand any GitHub repository with AI</p>
-            <p class="landing-sub">Paste a public GitHub repository link in the sidebar and click <b>Index repository</b> to explore codebase architecture, feature flow, and recent commits.</p>
+            <h1 class="landing-title">Understand any GitHub repository</h1>
+            <p class="landing-tagline">Connect a repository to explore codebase architecture, dependencies, and implementation details.</p>
+            <p class="landing-sub">Enter a public GitHub repository URL in the sidebar and click <b>Analyze repository</b> to begin.</p>
         </div>''',
         unsafe_allow_html=True
     )
-    st.markdown('<div class="sb-section" style="text-align:center;margin-top:1.5rem;margin-bottom:0.8rem">POPULAR QUESTIONS</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sb-section" style="text-align:left;margin-top:1.2rem;margin-bottom:0.8rem">EXPLORE SAMPLE QUESTIONS</div>', unsafe_allow_html=True)
     c1, c2 = st.columns(2)
     with c1:
-        st.markdown('''<div class="pop-card-title">📊 Repository Overview</div><div class="pop-card-sub">What does this repo do & architecture</div>''', unsafe_allow_html=True)
+        st.markdown('''<div class="pop-card-title">Repository Overview</div><div class="pop-card-sub">What does this repo do & architecture</div>''', unsafe_allow_html=True)
         if st.button("Generate Repository Overview", key="landing_q1", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "Give me an overview of this repository"
             st.rerun()
-        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">🔀 Commit Changes</div><div class="pop-card-sub">What changed in recent commits</div>''', unsafe_allow_html=True)
+        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">Commit Changes</div><div class="pop-card-sub">What changed in recent commits</div>''', unsafe_allow_html=True)
         if st.button("What changed recently?", key="landing_q2", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "What changed in the latest commit?"
             st.rerun()
     with c2:
-        st.markdown('''<div class="pop-card-title">🔍 Find Code</div><div class="pop-card-sub">Locate functions & modules</div>''', unsafe_allow_html=True)
+        st.markdown('''<div class="pop-card-title">Find Code</div><div class="pop-card-sub">Locate functions & modules</div>''', unsafe_allow_html=True)
         if st.button("Where is packet capture implemented?", key="landing_q3", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "Where is packet capture implemented?"
             st.rerun()
-        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">🔗 Trace Architecture</div><div class="pop-card-sub">Follow cross-file packet flows</div>''', unsafe_allow_html=True)
+        st.markdown('''<div class="pop-card-title" style="margin-top:1rem">Trace Architecture</div><div class="pop-card-sub">Follow cross-file packet flows</div>''', unsafe_allow_html=True)
         if st.button("How does a packet flow through the system?", key="landing_q4", use_container_width=True, disabled=not st.session_state.repo):
             st.session_state.pending_q = "How does a packet flow through the system?"
             st.rerun()
@@ -1360,7 +1356,7 @@ if question:
 
             if is_pure_greeting:
                 status.empty()
-                answer = "🤖 Hello! I'm Repo Buddy, your AI repository intelligence platform.\n\nAsk me anything about this repository's codebase, architecture, file dependencies, or recent commits!"
+                answer = "Hello! I'm Repo Buddy, your repository intelligence assistant.\n\nAsk me anything about this repository's codebase, architecture, file dependencies, or recent commits!"
                 st.markdown(answer)
                 hits = []
             else:
